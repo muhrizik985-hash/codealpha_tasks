@@ -88,8 +88,6 @@ Total paket: 50
   UDP                50
 ```
 
-![General capture](screenshots/dns_udp_capture.png)
-
 **Observations**
 
 - **DNS (UDP/53):** the laptop asks the DNS server to resolve a domain name before connecting.
@@ -102,17 +100,13 @@ Total paket: 50
 py sniffer.py -c 20 -f "icmp"
 ```
 
-![ICMP capture](screenshots/icmp_capture.png)
-
-ICMP type 8 is an echo request and type 0 is an echo reply. This matches the `ping` output shown in the screenshot.
+ICMP type 8 is an echo request and type 0 is an echo reply, which matches the output of the `ping` command.
 
 ### 5.3 Test 3: TCP / HTTP capture
 
 ```bash
 py sniffer.py -c 20 -f "tcp port 80" -o capture.pcap
 ```
-
-![TCP capture](screenshots/tcp_http_capture.png)
 
 Plain HTTP is not encrypted, so readable text such as request lines can appear in the payload. TCP flags (SYN, ACK, PSH) show the connection setup and data transfer.
 
@@ -148,6 +142,5 @@ The sniffer successfully captures and decodes live traffic, shows how data flows
 ```text
 Task1_Network_Sniffer/
 ├── sniffer.py
-├── README.md
-└── screenshots/
+└── README.md
 ```
